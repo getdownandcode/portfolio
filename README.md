@@ -1,3 +1,12 @@
-# Welcome to your Lovable project
+# Amar K P — Portfolio
 
-TODO: Document your project here
+Personal portfolio built with React, TypeScript, Vite, and Tailwind CSS.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Runs at `http://localhost:8080`.
