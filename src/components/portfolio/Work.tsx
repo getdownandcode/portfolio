@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 const projects = [
   {
@@ -89,89 +90,91 @@ export default function Work() {
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Section header */}
-        <div className="reveal mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="eyebrow mb-5">02 — Selected work</p>
-            <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
-              Things I've <span className="italic text-accent">built</span>.
-            </h2>
+        <Reveal>
+          <div className="mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow mb-5">02 — Selected work</p>
+              <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
+                Things I've <span className="italic text-accent">built</span>.
+              </h2>
+            </div>
+            <p className="max-w-[280px] text-sm leading-relaxed text-muted-foreground md:text-right">
+              Four representative projects across ML, distributed systems and cloud infrastructure.
+            </p>
           </div>
-          <p className="max-w-[280px] text-sm leading-relaxed text-muted-foreground md:text-right">
-            Four representative projects across ML, distributed systems and cloud infrastructure.
-          </p>
-        </div>
+        </Reveal>
 
         {/* Project list */}
         <div>
           {projects.map((p, idx) => (
-            <article
-              key={p.n}
-              className="reveal group grid gap-8 border-t border-border py-14 md:grid-cols-[64px_1fr_200px] md:gap-16 md:py-16"
-              data-delay={String(Math.min(idx + 1, 4))}
-            >
-              {/* Index number */}
-              <div className="font-mono text-xs text-muted-foreground pt-1">{p.n}</div>
+            <Reveal key={p.n} delay={0.1 * idx}>
+              <article
+                className="group grid gap-8 border-t border-border py-14 md:grid-cols-[64px_1fr_200px] md:gap-16 md:py-16"
+              >
+                {/* Index number */}
+                <div className="font-mono text-xs text-muted-foreground pt-1">{p.n}</div>
 
-              {/* Content */}
-              <div>
-                {/* Tags row */}
-                <div className="mb-6 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-accent/12 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
-                    {p.tag}
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                    {p.year} · {p.role}
-                  </span>
+                {/* Content */}
+                <div>
+                  {/* Tags row */}
+                  <div className="mb-6 flex flex-wrap items-center gap-3">
+                    <span className="rounded-full bg-accent/12 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                      {p.tag}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                      {p.year} · {p.role}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-display text-3xl leading-tight md:text-[2.75rem]">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.sub}</p>
+
+                  {/* Body */}
+                  <p className="mt-6 max-w-2xl text-[0.9375rem] leading-[1.8] text-foreground/75">
+                    {p.body}
+                  </p>
+
+                  {/* Bullets */}
+                  <ul className="mt-6 space-y-2.5">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-3 text-sm text-foreground/75">
+                        <span className="mt-[0.55em] h-px w-4 shrink-0 bg-accent" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Stack chips */}
+                  <div className="mt-7 flex flex-wrap gap-2">
+                    {p.stack.map((s) => (
+                      <span key={s} className="chip">{s}</span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="font-display text-3xl leading-tight md:text-[2.75rem]">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.sub}</p>
-
-                {/* Body */}
-                <p className="mt-6 max-w-2xl text-[0.9375rem] leading-[1.8] text-foreground/75">
-                  {p.body}
-                </p>
-
-                {/* Bullets */}
-                <ul className="mt-6 space-y-2.5">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-sm text-foreground/75">
-                      <span className="mt-[0.55em] h-px w-4 shrink-0 bg-accent" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Stack chips */}
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <span key={s} className="chip">{s}</span>
-                  ))}
+                {/* Right column: metrics + link */}
+                <div className="flex flex-row items-start justify-between gap-8 md:flex-col md:items-end md:justify-between md:pt-1">
+                  <div className="flex gap-8 md:flex-col md:items-end md:gap-6">
+                    {p.metrics.map((m) => (
+                      <div key={m.l} className="md:text-right">
+                        <div className="font-display text-3xl leading-none md:text-4xl">{m.v}</div>
+                        <div className="eyebrow mt-2">{m.l}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link-underline inline-flex items-center gap-1.5 text-[13px] text-foreground/80 hover:text-foreground"
+                  >
+                    View project
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
                 </div>
-              </div>
-
-              {/* Right column: metrics + link */}
-              <div className="flex flex-row items-start justify-between gap-8 md:flex-col md:items-end md:justify-between md:pt-1">
-                <div className="flex gap-8 md:flex-col md:items-end md:gap-6">
-                  {p.metrics.map((m) => (
-                    <div key={m.l} className="md:text-right">
-                      <div className="font-display text-3xl leading-none md:text-4xl">{m.v}</div>
-                      <div className="eyebrow mt-2">{m.l}</div>
-                    </div>
-                  ))}
-                </div>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="link-underline inline-flex items-center gap-1.5 text-[13px] text-foreground/80 hover:text-foreground"
-                >
-                  View project
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

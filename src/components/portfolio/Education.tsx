@@ -1,4 +1,5 @@
 import { GraduationCap, FileText, Award } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 export default function Education() {
   return (
@@ -6,19 +7,21 @@ export default function Education() {
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Section header */}
-        <div className="reveal mb-16 md:mb-20">
-          <p className="eyebrow mb-5">04 — Education & Recognition</p>
-          <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
-            Where I'm <span className="italic text-accent">studying</span> &amp;{" "}
-            recognised <span className="italic text-accent">work</span>.
-          </h2>
-        </div>
+        <Reveal>
+          <div className="mb-16 md:mb-20">
+            <p className="eyebrow mb-5">04 — Education & Recognition</p>
+            <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
+              Where I'm <span className="italic text-accent">studying</span> &amp;{" "}
+              recognised <span className="italic text-accent">work</span>.
+            </h2>
+          </div>
+        </Reveal>
 
         {/* Two-column layout */}
         <div className="grid gap-8 md:grid-cols-2 md:gap-12">
 
           {/* ── Education card ─────────────────────────── */}
-          <div className="reveal" data-delay="1">
+          <Reveal delay={0.1}>
             <div className="card-soft p-8 md:p-10">
               <div className="mb-8 flex items-center gap-4">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
@@ -44,47 +47,48 @@ export default function Education() {
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* ── Achievements ───────────────────────────── */}
-          <div className="reveal flex flex-col gap-5" data-delay="2">
-
-            {/* IEEE Paper */}
-            <div className="card-soft flex-1 p-8 md:p-10">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
-                  <FileText className="h-5 w-5 text-accent" />
+          <Reveal delay={0.2}>
+            <div className="flex flex-col gap-5">
+              {/* IEEE Paper */}
+              <div className="card-soft flex-1 p-8 md:p-10">
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
+                    <FileText className="h-5 w-5 text-accent" />
+                  </div>
+                  <span className="eyebrow">Research Publication · 2025</span>
                 </div>
-                <span className="eyebrow">Research Publication · 2025</span>
+                <h3 className="font-display text-xl leading-snug md:text-2xl">
+                  AI-enabled Space Crew Health Monitoring System
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">5th IEEE International Conference on ICTBIG</p>
+                <p className="mt-5 text-[0.9375rem] leading-[1.8] text-foreground/75">
+                  Co-authored a peer-reviewed paper presenting a real-time bio-telemetry and
+                  anomaly-forecasting architecture for astronaut health monitoring.
+                </p>
               </div>
-              <h3 className="font-display text-xl leading-snug md:text-2xl">
-                AI-enabled Space Crew Health Monitoring System
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">5th IEEE International Conference on ICTBIG</p>
-              <p className="mt-5 text-[0.9375rem] leading-[1.8] text-foreground/75">
-                Co-authored a peer-reviewed paper presenting a real-time bio-telemetry and
-                anomaly-forecasting architecture for astronaut health monitoring.
-              </p>
-            </div>
 
-            {/* CGPA achievement */}
-            <div className="card-soft p-8 md:p-10">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
-                  <Award className="h-5 w-5 text-accent" />
+              {/* CGPA achievement */}
+              <div className="card-soft p-8 md:p-10">
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
+                    <Award className="h-5 w-5 text-accent" />
+                  </div>
+                  <span className="eyebrow">Academic · 2023 — Present</span>
                 </div>
-                <span className="eyebrow">Academic · 2023 — Present</span>
+                <h3 className="font-display text-xl leading-snug md:text-2xl">
+                  Sustained 9.46 / 10 CGPA
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">Dayananda Sagar College of Engineering</p>
+                <p className="mt-5 text-[0.9375rem] leading-[1.8] text-foreground/75">
+                  Top-decile academic performance across systems, algorithms and
+                  machine-learning coursework while shipping side projects in parallel.
+                </p>
               </div>
-              <h3 className="font-display text-xl leading-snug md:text-2xl">
-                Sustained 9.46 / 10 CGPA
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">Dayananda Sagar College of Engineering</p>
-              <p className="mt-5 text-[0.9375rem] leading-[1.8] text-foreground/75">
-                Top-decile academic performance across systems, algorithms and
-                machine-learning coursework while shipping side projects in parallel.
-              </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
