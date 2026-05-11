@@ -13,7 +13,7 @@ const groups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-rule py-28 md:py-40">
+    <section id="skills" className="section-rule py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Header — asymmetric: label left, description right */}

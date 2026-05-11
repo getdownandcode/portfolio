@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/reveal";
 
 export default function Education() {
   return (
-    <section id="education" className="section-rule py-28 md:py-40">
+    <section id="education" className="section-rule py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Section header */}

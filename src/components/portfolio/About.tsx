@@ -9,7 +9,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-rule py-28 md:py-40">
+    <section id="about" className="section-rule py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Header row */}

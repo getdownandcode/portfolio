@@ -1,5 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus, Github } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const projects = [
   {
@@ -86,7 +93,7 @@ const projects = [
 
 export default function Work() {
   return (
-    <section id="work" className="section-rule py-28 md:py-40">
+    <section id="work" className="section-rule py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Section header */}
@@ -104,76 +111,134 @@ export default function Work() {
           </div>
         </Reveal>
 
-        {/* Project list */}
-        <div>
+        {/* Project grid */}
+        <div className="grid gap-8 md:grid-cols-2 md:gap-10">
           {projects.map((p, idx) => (
             <Reveal key={p.n} delay={0.1 * idx}>
-              <article
-                className="group grid gap-8 border-t border-border py-14 md:grid-cols-[64px_1fr_200px] md:gap-16 md:py-16"
-              >
-                {/* Index number */}
-                <div className="font-mono text-xs text-muted-foreground pt-1">{p.n}</div>
+              <Dialog>
+                <article className="group card-soft relative flex h-full min-h-[380px] flex-col justify-between p-7 sm:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+                  
+                  {/* Invisible overlay button to trigger modal */}
+                  <DialogTrigger className="absolute inset-0 z-10 outline-none cursor-pointer rounded-2xl" aria-label="View project details" />
 
-                {/* Content */}
-                <div>
-                  {/* Tags row */}
-                  <div className="mb-6 flex flex-wrap items-center gap-3">
-                    <span className="rounded-full bg-accent/12 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
-                      {p.tag}
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                      {p.year} · {p.role}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-display text-3xl leading-tight md:text-[2.75rem]">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.sub}</p>
-
-                  {/* Body */}
-                  <p className="mt-6 max-w-2xl text-[0.9375rem] leading-[1.8] text-foreground/75">
-                    {p.body}
-                  </p>
-
-                  {/* Bullets */}
-                  <ul className="mt-6 space-y-2.5">
-                    {p.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-sm text-foreground/75">
-                        <span className="mt-[0.55em] h-px w-4 shrink-0 bg-accent" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Stack chips */}
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {p.stack.map((s) => (
-                      <span key={s} className="chip">{s}</span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right column: metrics + link */}
-                <div className="flex flex-row items-start justify-between gap-8 md:flex-col md:items-end md:justify-between md:pt-1">
-                  <div className="flex gap-8 md:flex-col md:items-end md:gap-6">
-                    {p.metrics.map((m) => (
-                      <div key={m.l} className="md:text-right">
-                        <div className="font-display text-3xl leading-none md:text-4xl">{m.v}</div>
-                        <div className="eyebrow mt-2">{m.l}</div>
+                  {/* Card Content - we set pointer-events-none so clicks fall through to the overlay trigger, 
+                      but restore pointer-events-auto on the buttons we want to be clickable */}
+                  <div className="relative z-20 flex h-full flex-col justify-between pointer-events-none">
+                    <div>
+                      {/* Top Header: Tags & Index */}
+                      <div className="mb-6 flex flex-wrap items-start justify-between gap-4 border-b border-border/50 pb-5">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                          <span className="rounded-full bg-accent/12 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                            {p.tag}
+                          </span>
+                          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                            {p.year}
+                          </span>
+                        </div>
+                        <span className="font-mono text-xs text-muted-foreground pt-0.5">{p.n}</span>
                       </div>
-                    ))}
+
+                      {/* Title & Link */}
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h3 className="font-display text-3xl leading-tight md:text-[2.25rem]">{p.title}</h3>
+                          <p className="mt-2 text-sm text-muted-foreground">{p.sub}</p>
+                        </div>
+                        <div className="flex items-center gap-2 pointer-events-auto">
+                          {/* GitHub Link Button */}
+                          <a
+                            href={p.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            title="View on GitHub"
+                            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-border bg-background text-foreground/70 transition-all duration-300 hover:border-foreground/30 hover:bg-foreground hover:text-background hover:shadow-soft"
+                          >
+                            <Github className="h-4 w-4" />
+                          </a>
+                          
+                          {/* Plus Icon (Visual indicator for the DialogTrigger) */}
+                          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-border bg-background text-foreground/70 transition-all duration-300 group-hover:border-foreground/30 group-hover:bg-foreground group-hover:text-background group-hover:shadow-soft pointer-events-none">
+                            <Plus className="h-4 w-4 transition-transform duration-300 group-hover:rotate-90" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Body Text Truncated */}
+                      <p className="mt-6 text-[0.9375rem] leading-[1.8] text-foreground/75 line-clamp-3">
+                        {p.body}
+                      </p>
+                    </div>
+
+                    {/* Footer: Tech Stack */}
+                    <div className="mt-8 border-t border-border pt-6">
+                      <div className="flex flex-wrap gap-2">
+                        {p.stack.slice(0, 4).map((s) => (
+                          <span key={s} className="chip">{s}</span>
+                        ))}
+                        {p.stack.length > 4 && (
+                          <span className="chip">+{p.stack.length - 4}</span>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="link-underline inline-flex items-center gap-1.5 text-[13px] text-foreground/80 hover:text-foreground"
-                  >
-                    View project
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
-                </div>
-              </article>
+                </article>
+
+                <DialogContent className="max-w-2xl bg-card border-border shadow-2xl gap-0 p-0 sm:rounded-[2rem] overflow-hidden">
+                  <div className="max-h-[85vh] overflow-y-auto p-8 sm:p-12">
+                    <DialogHeader className="mb-6 border-b border-border/50 pb-6 text-left">
+                      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                        <span className="w-fit rounded-full bg-accent/12 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                          {p.tag}
+                        </span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                          {p.year}
+                        </span>
+                      </div>
+                      <DialogTitle className="font-display text-3xl md:text-4xl">{p.title}</DialogTitle>
+                      <p className="mt-2 text-base text-muted-foreground">{p.sub}</p>
+                    </DialogHeader>
+
+                    <p className="text-[1.0625rem] leading-[1.8] text-foreground/80">
+                      {p.body}
+                    </p>
+
+                    <ul className="mt-8 space-y-4">
+                      {p.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-4 text-foreground/80">
+                          <span className="mt-[0.6em] h-px w-4 shrink-0 bg-accent/60" />
+                          <span className="leading-relaxed">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-10 grid grid-cols-2 gap-6 rounded-2xl bg-surface p-6 sm:p-8">
+                      {p.metrics.map((m) => (
+                        <div key={m.l}>
+                          <div className="font-display text-4xl leading-none text-foreground">{m.v}</div>
+                          <div className="eyebrow mt-2 text-muted-foreground">{m.l}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+                      <div className="flex flex-wrap gap-2 flex-1">
+                        {p.stack.map((s) => (
+                          <span key={s} className="chip bg-background">{s}</span>
+                        ))}
+                      </div>
+                      <a
+                        href={p.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group inline-flex h-11 shrink-0 items-center justify-center gap-2.5 rounded-full bg-foreground px-6 text-sm font-medium text-background transition-all hover:bg-foreground/90"
+                      >
+                        <Github className="h-4 w-4" />
+                        View on GitHub
+                      </a>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </Reveal>
           ))}
         </div>

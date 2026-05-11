@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-32 pt-44 md:pt-52">
+    <section id="top" className="relative overflow-hidden pb-16 pt-44 md:pt-52 md:pb-24">
       {/* Warm radial glow — larger & more diffused */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}

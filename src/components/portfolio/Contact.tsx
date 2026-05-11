@@ -15,7 +15,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section-rule py-28 md:py-40">
+    <section id="contact" className="section-rule py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-8 md:px-12">
 
         {/* Section header — full width, large */}
