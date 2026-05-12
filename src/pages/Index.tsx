@@ -1,11 +1,11 @@
-import Nav from "@/components/portfolio/Nav";
-import Hero from "@/components/portfolio/Hero";
-import About from "@/components/portfolio/About";
-import Work from "@/components/portfolio/Work";
-import Skills from "@/components/portfolio/Skills";
-import Education from "@/components/portfolio/Education";
-import Contact from "@/components/portfolio/Contact";
-import Footer from "@/components/portfolio/Footer";
+import Nav from "@/features/portfolio/components/Nav";
+import Hero from "@/features/portfolio/components/Hero";
+import About from "@/features/portfolio/components/About";
+import Work from "@/features/portfolio/components/Work";
+import Skills from "@/features/portfolio/components/Skills";
+import Education from "@/features/portfolio/components/Education";
+import Contact from "@/features/portfolio/components/Contact";
+import Footer from "@/features/portfolio/components/Footer";
 
 const Index = () => {
   return (

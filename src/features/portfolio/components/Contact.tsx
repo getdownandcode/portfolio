@@ -133,7 +133,7 @@ export default function Contact() {
 function ContactRow({
   icon, label, value, href,
 }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
-  const Tag: any = href ? "a" : "div";
+  const Tag = href ? "a" : "div";
   return (
     <Tag href={href} className="group flex items-center gap-4">
       <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent/10 transition-all duration-200 group-hover:bg-accent/18 group-hover:scale-105">
