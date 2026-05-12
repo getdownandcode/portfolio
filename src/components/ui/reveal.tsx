@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, type Variants, useInView } from "framer-motion";
 import { useRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +20,7 @@ export const Reveal = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
-  const variants = {
+  const variants: Variants = {
     hidden: {
       opacity: 0,
       y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
@@ -34,7 +34,7 @@ export const Reveal = ({
       filter: "blur(0px)",
       transition: {
         duration: 0.8,
-        ease: [0.2, 0.65, 0.3, 0.9],
+        ease: [0.2, 0.65, 0.3, 0.9] as const,
         delay,
       },
     },
