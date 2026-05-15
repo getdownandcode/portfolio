@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/reveal";
+import StackMarquee from "@/components/ui/stack-marquee";
 
 const groups = [
   { n: "01", title: "Languages",         items: ["Python", "C++", "C", "JavaScript"] },
@@ -54,6 +55,11 @@ export default function Skills() {
               </div>
             ))}
           </div>
+        </Reveal>
+
+        {/* Infinite tech stack marquee */}
+        <Reveal delay={0.25}>
+          <StackMarquee />
         </Reveal>
       </div>
     </section>
