@@ -12,9 +12,9 @@ export default function Footer() {
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-background/45">
               Let's collaborate
             </p>
-            <h3 className="font-display mt-5 text-4xl leading-[1.1] md:text-6xl">
+            <h3 className="mt-5 text-4xl font-medium leading-[1.1] md:text-6xl tracking-[-0.02em]">
               Have an idea?{" "}
-              <span className="italic" style={{ color: "hsl(var(--accent-soft))" }}>
+              <span className="italic font-display" style={{ color: "hsl(var(--accent-soft))" }}>
                 Let's build it.
               </span>
             </h3>

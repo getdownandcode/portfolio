@@ -4,40 +4,40 @@
 
 @layer base {
   :root {
-    /* Cream paper palette */
-    --background: 42 33% 96%;
-    --foreground: 24 10% 10%;
+    /* Cream paper palette - Open Design */
+    --background: 43 44% 88%;
+    --foreground: 50 17% 7%;
 
-    --surface: 40 28% 93%;
-    --surface-2: 38 24% 88%;
+    --surface: 43 30% 83%;
+    --surface-2: 43 25% 78%;
 
-    --card: 42 33% 97%;
-    --card-foreground: 24 10% 10%;
+    --card: 43 44% 88%;
+    --card-foreground: 50 17% 7%;
 
-    --popover: 42 33% 97%;
-    --popover-foreground: 24 10% 10%;
+    --popover: 43 44% 88%;
+    --popover-foreground: 50 17% 7%;
 
-    --primary: 24 12% 8%;
-    --primary-foreground: 42 33% 97%;
+    --primary: 50 17% 7%;
+    --primary-foreground: 43 44% 88%;
 
-    --secondary: 38 24% 90%;
-    --secondary-foreground: 24 12% 10%;
+    --secondary: 43 25% 78%;
+    --secondary-foreground: 50 17% 7%;
 
-    --muted: 38 22% 90%;
-    --muted-foreground: 25 8% 40%;
+    --muted: 43 25% 78%;
+    --muted-foreground: 50 10% 40%;
 
-    --accent: 14 72% 48%;
-    --accent-foreground: 42 33% 97%;
-    --accent-soft: 28 60% 80%;
+    --accent: 11 80% 66%;
+    --accent-foreground: 50 17% 7%;
+    --accent-soft: 11 60% 80%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 42 33% 97%;
+    --destructive-foreground: 43 44% 88%;
 
-    --border: 30 18% 82%;
-    --input: 30 18% 82%;
-    --ring: 24 12% 20%;
+    --border: 50 10% 70%;
+    --input: 50 10% 70%;
+    --ring: 50 17% 7%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
 
     --shadow-soft: 0 1px 2px hsl(24 10% 10% / 0.04), 0 8px 32px -12px hsl(24 10% 10% / 0.1);
     --shadow-card: 0 1px 0 hsl(30 18% 84%), 0 30px 60px -40px hsl(24 10% 10% / 0.16);
@@ -56,7 +56,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter Tight', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
     overflow-x: hidden;
   }
@@ -87,12 +87,12 @@ body::after {
 @layer components {
   /* ── Typography ──────────────────────────────────────── */
   .font-display {
-    font-family: 'Instrument Serif', 'Times New Roman', serif;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
     font-weight: 400;
     letter-spacing: -0.015em;
   }
   .font-mono {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-family: ui-monospace, monospace;
     font-weight: 400;
   }
 

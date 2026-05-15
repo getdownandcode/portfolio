@@ -21,9 +21,11 @@ export default function Skills() {
         <Reveal>
           <div className="mb-16 grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end md:mb-20">
             <div>
-              <p className="eyebrow mb-5">03 — Toolbox</p>
-              <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
-                Stack <span className="italic text-accent">&</span> craft.
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                III. Toolbox
+              </p>
+              <h2 className="text-5xl leading-[1.0] md:text-[5.5rem] font-medium tracking-[-0.02em]">
+                Stack <span className="italic font-display text-accent">&</span> craft.
               </h2>
             </div>
             <p className="max-w-sm text-[0.9375rem] leading-[1.8] text-foreground/65">
@@ -34,11 +36,11 @@ export default function Skills() {
 
         {/* Skills grid — 2 cols mobile, 4 cols large, border-gap pattern */}
         <Reveal delay={0.15}>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {groups.map((g) => (
               <div
                 key={g.n}
-                className="group flex flex-col justify-between bg-card p-7 transition-colors duration-300 hover:bg-surface"
+                className="group flex flex-col justify-between rounded-[24px] border border-border/50 bg-surface/40 p-7 backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md"
               >
                 {/* Title row */}
                 <div className="mb-6 flex items-start justify-between gap-2">

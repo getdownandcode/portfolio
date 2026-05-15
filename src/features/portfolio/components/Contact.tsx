@@ -21,9 +21,11 @@ export default function Contact() {
         {/* Section header — full width, large */}
         <Reveal>
           <div className="mb-16 md:mb-20">
-            <p className="eyebrow mb-5">06 — Contact</p>
-            <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
-              Let's <span className="italic text-accent">talk</span>.
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+              V. Contact
+            </p>
+            <h2 className="text-5xl leading-[1.0] md:text-[5.5rem] font-medium tracking-[-0.02em]">
+              Let's <span className="italic font-display text-accent">talk</span>.
             </h2>
           </div>
         </Reveal>
@@ -72,7 +74,7 @@ export default function Contact() {
 
           {/* Right — form */}
           <Reveal delay={0.2}>
-            <form onSubmit={submit} className="card-soft p-8 md:p-10">
+            <form onSubmit={submit} className="rounded-[24px] border border-border/50 bg-surface/40 p-8 md:p-10 backdrop-blur-md shadow-sm">
               <p className="eyebrow mb-8">Send a message</p>
 
               <div className="grid gap-5 sm:grid-cols-2">

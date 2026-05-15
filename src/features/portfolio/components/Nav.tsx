@@ -10,48 +10,35 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="fixed left-0 right-0 top-5 z-50 px-6">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4">
-
-        {/* Logo pill — tighter, cleaner */}
-        <a
-          href="#top"
-          className="group flex items-center gap-3 rounded-full bg-foreground py-2 pl-2.5 pr-5 shadow-card transition-all duration-300 hover:shadow-hover hover:scale-[1.02]"
-        >
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-background/10 font-mono text-[10px] tracking-widest text-background">
-            AK
-          </span>
-          <span className="leading-snug">
-            <span className="block text-[13px] font-semibold text-background">Amar K P</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-background/55">
-              Software Engineer
-            </span>
+    <header className="fixed left-0 right-0 top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <a href="#top" className="flex items-center gap-2 group">
+          <span className="font-display italic text-2xl tracking-tight text-foreground transition-transform group-hover:-rotate-2">
+            Amar.
           </span>
         </a>
 
-        {/* Nav pill — refined gap & font size */}
-        <nav className="hidden items-center gap-7 rounded-full border border-border bg-background/85 px-8 py-3 shadow-soft backdrop-blur-md md:flex">
-          {links.map((l, i) => (
+        {/* Links */}
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
             <a
               key={l.id}
               href={`#${l.id}`}
-              className="group flex items-center gap-1.5 text-[13px] text-foreground/70 transition-colors duration-200 hover:text-foreground"
+              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors link-underline"
             >
-              <span className="font-mono text-[9px] text-muted-foreground transition-colors group-hover:text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="link-underline">{l.label}</span>
+              {l.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA button */}
+        {/* CTA */}
         <a
           href="#contact"
-          className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-[13px] font-medium text-background shadow-card transition-all duration-300 hover:gap-3 hover:shadow-hover"
+          className="group flex items-center gap-2 rounded-full border border-border bg-transparent px-4 py-1.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
         >
-          Get in touch
-          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          Contact
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </header>

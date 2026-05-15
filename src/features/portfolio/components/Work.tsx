@@ -100,9 +100,11 @@ export default function Work() {
         <Reveal>
           <div className="mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow mb-5">02 — Selected work</p>
-              <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
-                Things I've <span className="italic text-accent">built</span>.
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                II. Selected work
+              </p>
+              <h2 className="text-5xl leading-[1.0] md:text-[5.5rem] font-medium tracking-[-0.02em]">
+                Things I've <span className="italic font-display text-accent">built</span>.
               </h2>
             </div>
             <p className="max-w-[280px] text-sm leading-relaxed text-muted-foreground md:text-right">
@@ -116,7 +118,7 @@ export default function Work() {
           {projects.map((p, idx) => (
             <Reveal key={p.n} delay={0.1 * idx}>
               <Dialog>
-                <article className="group card-soft relative flex h-full min-h-[380px] flex-col justify-between p-7 sm:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+                <article className="group relative flex h-full min-h-[380px] flex-col justify-between rounded-[24px] border border-border/50 bg-surface/40 p-7 sm:p-10 backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md">
                   
                   {/* Invisible overlay button to trigger modal */}
                   <DialogTrigger className="absolute inset-0 z-10 outline-none cursor-pointer rounded-2xl" aria-label="View project details" />

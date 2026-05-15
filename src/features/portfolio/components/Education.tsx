@@ -9,10 +9,12 @@ export default function Education() {
         {/* Section header */}
         <Reveal>
           <div className="mb-16 md:mb-20">
-            <p className="eyebrow mb-5">04 — Education & Recognition</p>
-            <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
-              Where I'm <span className="italic text-accent">studying</span> &amp;{" "}
-              recognised <span className="italic text-accent">work</span>.
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+              IV. Education & Recognition
+            </p>
+            <h2 className="text-5xl leading-[1.0] md:text-[5.5rem] font-medium tracking-[-0.02em]">
+              Where I'm <span className="italic font-display text-accent">studying</span> &amp;{" "}
+              recognised <span className="italic font-display text-accent">work</span>.
             </h2>
           </div>
         </Reveal>
@@ -22,7 +24,7 @@ export default function Education() {
 
           {/* ── Education card ─────────────────────────── */}
           <Reveal delay={0.1}>
-            <div className="card-soft p-8 md:p-10">
+            <div className="rounded-[24px] border border-border/50 bg-surface/40 p-8 md:p-10 backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md">
               <div className="mb-8 flex items-center gap-4">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
                   <GraduationCap className="h-5 w-5 text-accent" />
@@ -53,7 +55,7 @@ export default function Education() {
           <Reveal delay={0.2}>
             <div className="flex flex-col gap-5">
               {/* IEEE Paper */}
-              <div className="card-soft flex-1 p-8 md:p-10">
+              <div className="rounded-[24px] border border-border/50 bg-surface/40 p-8 md:p-10 backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md flex-1">
                 <div className="mb-6 flex items-center gap-4">
                   <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
                     <FileText className="h-5 w-5 text-accent" />
@@ -71,7 +73,7 @@ export default function Education() {
               </div>
 
               {/* CGPA achievement */}
-              <div className="card-soft p-8 md:p-10">
+              <div className="rounded-[24px] border border-border/50 bg-surface/40 p-8 md:p-10 backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md">
                 <div className="mb-6 flex items-center gap-4">
                   <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent/12">
                     <Award className="h-5 w-5 text-accent" />

@@ -16,10 +16,12 @@ export default function About() {
         <Reveal>
           <div className="mb-16 grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-end md:mb-20">
             <div>
-              <p className="eyebrow mb-5">01 — About</p>
-              <h2 className="font-display text-5xl leading-[1.0] md:text-[5.5rem]">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                I. About
+              </p>
+              <h2 className="text-5xl leading-[1.0] md:text-[5.5rem] font-medium tracking-[-0.02em]">
                 A builder of{" "}
-                <span className="italic text-accent">quietly<br />intelligent</span>{" "}
+                <span className="italic font-display text-accent">quietly<br />intelligent</span>{" "}
                 systems.
               </h2>
             </div>
@@ -51,16 +53,16 @@ export default function About() {
             </div>
 
             {/* Stats grid — 2×2 */}
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border">
+            <div className="grid grid-cols-2 gap-4">
               {stats.map((s, i) => (
                 <div
                   key={s.l}
-                  className="group flex flex-col justify-between bg-card p-6 transition-colors duration-300 hover:bg-surface"
+                  className="group flex flex-col justify-between rounded-[24px] border border-border/50 bg-surface/40 p-6 backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md"
                 >
                   <div className="font-display text-4xl leading-none md:text-5xl">{s.v}</div>
-                  <div className="mt-4">
-                    <div className="eyebrow">{s.l}</div>
-                    <div className="mt-1 font-mono text-[10px] text-accent">{s.sub}</div>
+                  <div className="mt-8">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70">{s.l}</div>
+                    <div className="mt-1 font-mono text-[10px] text-accent/80">{s.sub}</div>
                   </div>
                 </div>
               ))}

@@ -152,26 +152,28 @@ export default function Hero() {
           Portfolio - V2026.05
         </motion.p>
 
-        <div className="mt-5 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(520px,620px)] md:items-end md:gap-10 xl:gap-14">
-          <motion.div variants={itemVariants}>
+        <div className="mt-5 flex flex-col items-center gap-16 lg:gap-24 w-full">
+          <motion.div variants={itemVariants} className="w-full">
             {/* Main headline — tighter leading, larger on desktop */}
-            <h1 className="font-display text-[17vw] leading-[0.9] tracking-[-0.03em] md:text-[10.5rem]">
+            <h1 className="text-[17vw] leading-[0.85] tracking-[-0.04em] md:text-[11rem] font-medium text-center">
               <span className="block text-foreground">Amar</span>
-              <span className="block italic text-accent">
-                Kerpala<span className="text-foreground/40">.</span>
+              <span className="block font-display italic text-foreground">
+                Kerpala<span className="text-accent">.</span>
               </span>
             </h1>
 
-            <a
-              href={resumeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group mt-8 inline-flex items-center gap-3 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:gap-4 hover:shadow-hover"
-            >
-              <FileText className="h-4 w-4" />
-              Resume
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
+            <div className="flex justify-center mt-12">
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full bg-foreground px-8 py-4 text-base font-medium text-background shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:gap-4 hover:shadow-md hover:bg-foreground/90"
+              >
+                <FileText className="h-5 w-5" />
+                Resume
+                <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
           </motion.div>
 
           <motion.a
@@ -179,21 +181,21 @@ export default function Hero() {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="group block w-full rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-hover sm:p-6"
+            className="group block w-full max-w-[850px] mx-auto rounded-[32px] border border-white/50 bg-white/20 backdrop-blur-xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-white/80 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] sm:p-10"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="eyebrow">GitHub Activity</p>
-                <p className="mt-3 font-mono text-xs text-muted-foreground">@{githubUsername}</p>
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-muted-foreground">GitHub Activity</p>
+                <p className="mt-4 font-mono text-sm text-foreground/70">@{githubUsername}</p>
               </div>
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-foreground text-background transition-transform duration-300 group-hover:rotate-6">
-                <Github className="h-5 w-5" />
+              <span className="grid h-14 w-14 place-items-center rounded-full bg-foreground text-background transition-transform duration-300 group-hover:rotate-6">
+                <Github className="h-7 w-7" />
               </span>
             </div>
 
-            <div className="mt-6 overflow-x-auto pb-1">
-              <div className="min-w-[620px]">
-                <div className="relative ml-8 h-5 font-mono text-[10px] text-foreground/60">
+            <div className="mt-10 overflow-x-auto pb-4">
+              <div className="min-w-[742px]">
+                <div className="relative ml-10 h-6 font-mono text-[10px] text-foreground/60">
                   {monthLabels.map((day) => {
                     const column = Math.floor(contributionDays.findIndex((item) => item.key === day.key) / 7);
 
@@ -201,7 +203,7 @@ export default function Hero() {
                       <span
                         key={day.key}
                         className="absolute top-0"
-                        style={{ left: `${column * 12}px` }}
+                        style={{ left: `${column * 14}px` }}
                       >
                         {day.month}
                       </span>
@@ -209,8 +211,8 @@ export default function Hero() {
                   })}
                 </div>
 
-                <div className="flex gap-3">
-                  <div className="grid grid-rows-7 gap-1 pt-[1px] font-mono text-[10px] leading-[8px] text-foreground/55">
+                <div className="flex gap-4">
+                  <div className="grid grid-rows-7 gap-1 pt-0.5 font-mono text-[10px] leading-[10px] text-foreground/55">
                     <span />
                     <span>Mon</span>
                     <span />
@@ -226,12 +228,12 @@ export default function Hero() {
                         day.count >= 4 ? "bg-accent" :
                         day.count >= 2 ? "bg-accent/75" :
                         day.count >= 1 ? "bg-accent/45" :
-                        "bg-surface-2";
+                        "bg-white/40";
 
                       return (
                         <span
                           key={day.key}
-                          className={`h-2 w-2 rounded-[2px] border border-border/70 ${level}`}
+                          className={`h-2.5 w-2.5 rounded-[2px] border border-black/5 ${level}`}
                           title={day.count > 0 ? `${day.count} public commits on ${day.key}` : `No public commits on ${day.key}`}
                           aria-label={day.count > 0 ? `${day.count} public commits on ${day.key}` : `No public commits on ${day.key}`}
                         />
@@ -242,22 +244,22 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="mt-5 flex items-center justify-between gap-4 border-t border-border pt-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/55">
+            <div className="mt-8 flex items-center justify-between gap-4 border-t border-border pt-6">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/55">
                 {commitTotal} recent commits
               </p>
-              <div className="flex items-center gap-4">
-                <div className="hidden items-center gap-1.5 font-mono text-[10px] text-foreground/55 sm:flex">
+              <div className="flex items-center gap-6">
+                <div className="hidden items-center gap-2 font-mono text-xs text-foreground/55 sm:flex">
                   <span>Less</span>
-                  <span className="h-2 w-2 rounded-[2px] border border-border/70 bg-surface-2" />
-                  <span className="h-2 w-2 rounded-[2px] border border-border/70 bg-accent/45" />
-                  <span className="h-2 w-2 rounded-[2px] border border-border/70 bg-accent/75" />
-                  <span className="h-2 w-2 rounded-[2px] border border-border/70 bg-accent" />
+                  <span className="h-4 w-4 rounded-[4px] border border-border/70 bg-surface-2" />
+                  <span className="h-4 w-4 rounded-[4px] border border-border/70 bg-accent/45" />
+                  <span className="h-4 w-4 rounded-[4px] border border-border/70 bg-accent/75" />
+                  <span className="h-4 w-4 rounded-[4px] border border-border/70 bg-accent" />
                   <span>More</span>
                 </div>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground">
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
                   View profile
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
               </div>
             </div>
